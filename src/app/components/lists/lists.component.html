@@ -1,0 +1,40 @@
+<div class="container ttle">
+  <div class="qte text-center">
+    <p class="display-4">List of things</p>
+    <p id="subtext01" class="form-text">
+      Time is precious!<br/>Call out top 10 bad time consuming activities that you want to avoid.
+    </p>
+    <button type="button" class="btn btn-outline-dark btn-sm" routerLink="/time">Back</button>
+      <br>
+      <br>
+    <div class="container">
+      <form #myList="ngForm" novalidate>
+        <div class="input-group center">
+          <input type="text" class="form-control" required class="form-control" name="listItem" #listItemX="ngModel" placeholder="Type here..." aria-label="Type here" maxlength="140" minlength="3" aria-describedby="button-addon2" [(ngModel)]="listItem">
+            <div class="input-group-append">
+              <button class="btn btn-light" type="button" id="button-addon2" (click)="addtoList(myList)" [disabled]=!myList.valid>Add to list</button>
+            </div>
+        </div>
+      </form>             
+        <br>
+        <div *ngIf="itemList?.length == 0; else listofNotoDos ">
+          <div class="card bgx">
+            <div class="card-body">
+              <div class="lead brk">You have not added any item in the list..</div>
+            </div>
+          </div>     
+        </div>
+        <ng-template #listofNotoDos>
+          <div *ngFor= "let items of itemList" >
+            <div class="card bgx">
+              <div class="card-body">
+              <div class="lead brk">{{items.item}}</div>
+                <button type="button" class="btn btn-link btn-sm" (click)="removeItem(items)">Remove</button>           
+              </div>
+            </div>   
+          </div>
+        </ng-template>
+        </div>
+      </div>
+</div>
+    

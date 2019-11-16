@@ -1,0 +1,73 @@
+<div class="col">
+  <div class="container ttle">
+    <div class="row">
+      <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <p class="lead spcs"> {{ name }}</p>
+        <h1 class="display-2">{{ dDays }} Days</h1>
+        <p class="display-4">{{dHours}}: {{dMins}}: {{dSecs}}</p>
+        <hr>
+        <button type="button" class="btn btn-light col-sm-4 col-md-4 col-lg-4" (click)="auth.signOut()" *ngIf="auth.user$ | async as user; else login">Logout</button>
+        <ng-template #login>
+          <button type="button" class="btn btn-light col-sm-4 col-md-4 col-lg-4" data-toggle="modal" data-target="#user-login">Save time</button>
+        </ng-template>
+        <button type="button" class="btn btn-outline-dark col-sm-6 col-md-6 col-lg-6" routerLink="/list">My Not to do list!</button>
+      </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+        <!-- <div class="jumbotron jumbotron-fluid"> -->
+          <div class="qte text-center">
+            <blockquote class="blockquote">
+              <p class="lead">“You act like mortals in all that you fear, and like immortals in all that you desire”</p>
+              <footer class="blockquote-footer">Seneca</footer>
+            </blockquote>
+          </div>
+        <!-- </div> -->
+    </div>
+  </div>    
+</div>
+
+<!-- Login Modal Begins -->
+<div class="modal fade container-fluid" data-keyboard="false" data-backdrop="static" id="user-login" tabindex="-1" role="dialog" aria-labelledby="user-login" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <!-- <div class="modal-header text-center d-block">
+        <p class="modal-title text-center d-inline-block" id="dialog-title">Continue with your existing account!</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <app-amiloggedin></app-amiloggedin>
+        <!-- <div class="container text-center">          
+          <h5 class="title">Log in with your existing account!</h5>
+          <small class="form-text text-muted text-center">This is just to save your time. Do not expect spams or mails from us!</small>
+          <div class="btn-group-vertical">            
+            <button type="button" class="btn google-btn" (click)="auth.googleSignin()" data-dismiss="modal">
+              <span><img [src]="g_icon" alt="" class="logo-icon"></span>
+              Contine with Google
+            </button>
+            
+            <button type="button" class="btn fb-btn" (click)="auth.facebookSignin()" data-dismiss="modal">
+              <span><img [src]="f_icon" alt="" class="logo-icon"></span>
+              Continue with Facebook
+            </button>
+           
+            <button type="button" class="btn twt-btn" (click)="auth.twitterSignin()" data-dismiss="modal">
+              <span><img [src]="t_icon" alt="" class="logo-icon"></span>
+              Contine with Twitter
+            </button>
+           
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Login Model Ends -->
